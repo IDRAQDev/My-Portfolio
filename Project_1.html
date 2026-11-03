@@ -1,0 +1,1602 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>IDRAQ DEV | Developer Portfolio</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+/* ================= GLOBAL ================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+:root {
+    --bg: #050a18;
+    --card: #0c162b;
+    --purple: #805cff;
+    --blue: #526bff;
+    --white: #ffffff;
+    --muted: #9ca8bd;
+    --border: rgba(255,255,255,0.09);
+}
+
+body {
+    background: var(--bg);
+    color: var(--white);
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+section {
+    padding: 85px 8%;
+}
+
+.gradient {
+    background: linear-gradient(90deg, #a58aff, #526bff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.label {
+    display: inline-block;
+    color: #a995ff;
+    background: rgba(128,92,255,0.12);
+    padding: 7px 12px;
+    font-size: 10px;
+    letter-spacing: 1px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+}
+
+.heading {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.heading h2 {
+    font-size: 32px;
+    margin-bottom: 12px;
+}
+
+.heading p {
+    color: var(--muted);
+    font-size: 12px;
+}
+
+
+/* ================= NAVBAR ================= */
+
+.navbar {
+    min-height: 75px;
+    padding: 15px 8%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(5,10,24,0.96);
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: blur(15px);
+}
+
+.logo {
+    font-size: 20px;
+    font-weight: 800;
+    letter-spacing: -1px;
+}
+
+.logo span {
+    color: var(--purple);
+}
+
+.nav-links {
+    display: flex;
+    gap: 25px;
+}
+
+.nav-links a {
+    color: #b9c1d0;
+    font-size: 12px;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    color: var(--purple);
+}
+
+.hire-btn {
+    background: linear-gradient(120deg, var(--purple), var(--blue));
+    padding: 12px 20px;
+    border-radius: 5px;
+    font-size: 12px;
+    transition: 0.3s;
+}
+
+.hire-btn:hover {
+    box-shadow: 0 5px 25px #805cff66;
+    transform: translateY(-3px);
+}
+
+
+/* ================= BUTTONS ================= */
+
+.btn {
+    display: inline-block;
+    padding: 14px 22px;
+    border-radius: 5px;
+    font-size: 12px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.primary {
+    background: linear-gradient(120deg, var(--purple), var(--blue));
+}
+
+.primary:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px #805cff55;
+}
+
+.secondary {
+    border: 1px solid #59647a;
+}
+
+.secondary:hover {
+    border-color: var(--purple);
+    background: #805cff22;
+}
+
+
+/* ================= HERO ================= */
+
+.hero {
+    min-height: 560px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-content {
+    width: 55%;
+    z-index: 2;
+}
+
+.intro {
+    color: #a995ff;
+    font-size: 11px;
+    letter-spacing: 2px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.dot {
+    display: inline-block;
+    height: 7px;
+    width: 7px;
+    border-radius: 50%;
+    background: #36dc8b;
+    margin-right: 8px;
+    box-shadow: 0 0 10px #36dc8b;
+}
+
+.hero h1 {
+    font-size: clamp(45px, 5vw, 65px);
+    letter-spacing: -3px;
+    margin-bottom: 10px;
+}
+
+.hero h2 {
+    font-size: clamp(25px, 3vw, 36px);
+    line-height: 1.35;
+}
+
+.hero p {
+    color: var(--muted);
+    max-width: 470px;
+    font-size: 13px;
+    line-height: 1.9;
+    margin-top: 20px;
+}
+
+.buttons {
+    display: flex;
+    gap: 15px;
+    margin-top: 30px;
+    flex-wrap: wrap;
+}
+
+.social {
+    display: flex;
+    gap: 25px;
+    margin-top: 30px;
+    color: var(--muted);
+    font-size: 12px;
+}
+
+.social a:hover {
+    color: var(--purple);
+}
+
+
+/* ================= FLOATING PHOTO ================= */
+
+.hero-image {
+    width: 43%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding: 20px 0;
+}
+
+.circle-glow {
+    position: absolute;
+    width: 360px;
+    height: 360px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(128, 92, 255, 0.35) 0%, rgba(82, 107, 255, 0.1) 50%, transparent 70%);
+    filter: blur(35px);
+    z-index: 1;
+}
+
+.profile-wrapper {
+    position: relative;
+    z-index: 2;
+    width: 340px;
+    height: 340px;
+    border-radius: 50%;
+    padding: 4px;
+    background: linear-gradient(135deg, var(--purple), var(--blue), rgba(255, 255, 255, 0.15));
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6), 0 0 30px rgba(128, 92, 255, 0.25);
+    animation: floating 4s ease-in-out infinite;
+}
+
+.profile-inner {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    overflow: hidden;
+    background: #091326;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.profile {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+}
+
+@keyframes floating {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-14px);
+    }
+}
+
+.code-card {
+    position: absolute;
+    z-index: 4;
+    right: 0px;
+    bottom: 25px;
+    width: 205px;
+    padding: 14px;
+    border-radius: 9px;
+    background: rgba(16, 26, 48, 0.9);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--border);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    font-size: 10px;
+    line-height: 1.9;
+    color: #c5cce0;
+}
+
+.code-card strong {
+    color: #a995ff;
+}
+
+.code-card em {
+    color: #58dca1;
+    font-style: normal;
+}
+
+
+/* ================= TECHNOLOGIES ================= */
+
+.tech-section {
+    padding: 30px 8%;
+    background: #080f20;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+}
+
+.tech-section p {
+    color: #8491aa;
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    margin-bottom: 22px;
+}
+
+.tech-list {
+    display: flex;
+    gap: 35px;
+    flex-wrap: wrap;
+}
+
+.tech-list span {
+    font-size: 14px;
+    font-weight: 800;
+    transition: 0.3s;
+}
+
+.tech-list span:hover {
+    transform: translateY(-4px);
+}
+
+.html { color: #ff7547; }
+.css { color: #3999ff; }
+.python { color: #ffd34f; }
+.java { color: #ff8d45; }
+.c { color: #66aaff; }
+.git { color: #ff694d; }
+
+
+/* ================= ABOUT ================= */
+
+.about {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 60px;
+}
+
+.about-content {
+    width: 50%;
+}
+
+.about h2 {
+    font-size: 35px;
+    line-height: 1.4;
+    margin-bottom: 20px;
+}
+
+.about-content p {
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.9;
+    margin-bottom: 25px;
+}
+
+.stats {
+    width: 48%;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 20px;
+}
+
+.stat {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 20px 10px;
+    border-bottom: 1px solid var(--border);
+}
+
+.stat-icon {
+    width: 43px;
+    height: 43px;
+    background: linear-gradient(135deg,var(--purple),var(--blue));
+    border-radius: 9px;
+    display: grid;
+    place-items: center;
+    font-size: 20px;
+}
+
+.stat h3 {
+    font-size: 22px;
+}
+
+.stat p {
+    color: var(--muted);
+    font-size: 10px;
+    margin-top: 5px;
+}
+
+
+/* ================= SKILLS ================= */
+
+.skills {
+    background: #080f20;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 35px 65px;
+}
+
+.skill-info {
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 12px;
+}
+
+.skill-info span:last-child {
+    color: var(--muted);
+    font-size: 11px;
+}
+
+.bar {
+    height: 6px;
+    background: #1a2740;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.progress {
+    height: 100%;
+    background: linear-gradient(90deg,#8259ff,#526bff);
+    border-radius: 10px;
+    animation: fill 1.5s ease;
+}
+
+@keyframes fill {
+    from { width: 0; }
+}
+
+.p95 { width: 95%; }
+.p75 { width: 75%; }
+.p85 { width: 85%; }
+.p30 { width: 30%; }
+
+
+/* ================= TEACHING ================= */
+
+.teaching {
+    background: #050a18;
+}
+
+.teaching-grid {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 25px;
+}
+
+.teaching-card {
+    background: #0c162b;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 30px;
+    transition: 0.3s;
+}
+
+.teaching-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--purple);
+    box-shadow: 0 10px 30px #805cff22;
+}
+
+.teaching-icon {
+    width: 55px;
+    height: 55px;
+    display: grid;
+    place-items: center;
+    background: linear-gradient(135deg,#805cff,#526bff);
+    border-radius: 10px;
+    font-size: 25px;
+    margin-bottom: 25px;
+}
+
+.teaching-card h3 {
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+.teaching-card p {
+    color: var(--muted);
+    font-size: 12px;
+    line-height: 1.9;
+    margin-bottom: 20px;
+}
+
+.teaching-card span {
+    color: #a995ff;
+    font-size: 11px;
+}
+
+
+/* ================= PROJECTS ================= */
+
+.projects {
+    background: var(--bg);
+}
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 25px;
+}
+
+.project-card {
+    background: #0a1326;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: 0.3s;
+}
+
+.project-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--purple);
+    box-shadow: 0 15px 40px #0005;
+}
+
+.project-number {
+    padding: 15px;
+    font-size: 9px;
+    color: var(--muted);
+    letter-spacing: 1px;
+}
+
+.project-visual {
+    height: 190px;
+    margin: 0 12px;
+    border-radius: 7px;
+    padding: 25px;
+    position: relative;
+    overflow: hidden;
+}
+
+.project-visual span {
+    font-size: 9px;
+    letter-spacing: 2px;
+    color: #c5c9ed;
+}
+
+.project-visual h3 {
+    font-size: 25px;
+    margin-top: 20px;
+    line-height: 1.2;
+}
+
+.visual-icon {
+    position: absolute;
+    right: 20px;
+    bottom: 15px;
+    font-size: 55px;
+    opacity: 0.5;
+}
+
+.library {
+    background: linear-gradient(135deg,#281a53,#151b40);
+}
+
+.ecommerce {
+    background: linear-gradient(135deg,#143a63,#182b4d);
+}
+
+.future {
+    background: linear-gradient(135deg,#153d48,#102c40);
+}
+
+.project-details {
+    padding: 20px 17px;
+}
+
+.project-details h3 {
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.project-details p {
+    color: var(--muted);
+    font-size: 11px;
+    line-height: 1.8;
+    min-height: 55px;
+}
+
+.tags {
+    display: flex;
+    gap: 8px;
+    margin-top: 15px;
+    flex-wrap: wrap;
+}
+
+.tags span {
+    color: #b6a7ff;
+    background: #805cff20;
+    padding: 6px 9px;
+    font-size: 9px;
+    border-radius: 4px;
+}
+
+.project-link {
+    display: inline-block;
+    margin-top: 22px;
+    color: #9c89ff;
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.project-link:hover {
+    color: white;
+}
+
+.all-projects {
+    text-align: center;
+    margin-top: 45px;
+}
+
+
+/* ================= CONTACT ================= */
+
+.contact {
+    background: #080f20;
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 50px;
+}
+
+.contact-content {
+    width: 55%;
+}
+
+.contact h2 {
+    font-size: 40px;
+    line-height: 1.3;
+    margin-bottom: 20px;
+}
+
+.contact-content p {
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.9;
+    max-width: 450px;
+    margin-bottom: 28px;
+}
+
+.contact-card {
+    width: 38%;
+    padding: 30px;
+    background: #101c34;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+}
+
+.contact-card h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.contact-card p {
+    color: var(--muted);
+    font-size: 12px;
+    margin-bottom: 20px;
+}
+
+.contact-card a {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 16px 0;
+    border-top: 1px solid var(--border);
+    font-size: 13px;
+    transition: 0.3s;
+}
+
+.contact-card a:hover {
+    color: var(--purple);
+}
+
+
+/* ================= FOOTER ================= */
+
+footer {
+    padding: 30px 8%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px solid var(--border);
+}
+
+footer p {
+    color: #7e8ba3;
+    font-size: 10px;
+    text-align: center;
+    line-height: 1.8;
+}
+
+footer .back {
+    color: #a995ff;
+    font-size: 11px;
+}
+
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:1000px) {
+
+    section {
+        padding: 75px 5%;
+    }
+
+    .navbar {
+        padding: 15px 5%;
+    }
+
+    .hero {
+        padding: 60px 5%;
+    }
+
+    .circle-glow {
+        width: 300px;
+        height: 300px;
+    }
+
+    .profile-wrapper {
+        width: 290px;
+        height: 290px;
+    }
+
+    .code-card {
+        right: -5px;
+    }
+}
+
+@media(max-width:700px) {
+
+    .navbar {
+        padding: 20px 5%;
+        flex-wrap: wrap;
+        gap: 18px;
+    }
+
+    .nav-links {
+        order: 3;
+        width: 100%;
+        justify-content: center;
+        gap: 15px;
+        flex-wrap: wrap;
+    }
+
+    .nav-links a {
+        font-size: 10px;
+    }
+
+    .hero {
+        flex-direction: column;
+        text-align: center;
+        padding: 60px 6% 30px;
+    }
+
+    .hero-content {
+        width: 100%;
+    }
+
+    .hero h1 {
+        font-size: 43px;
+    }
+
+    .hero h2 {
+        font-size: 27px;
+    }
+
+    .hero p {
+        margin: 20px auto;
+    }
+
+    .buttons,
+    .social {
+        justify-content: center;
+    }
+
+    .hero-image {
+        width: 100%;
+        height: auto;
+        margin-top: 25px;
+    }
+
+    .circle-glow {
+        width: 280px;
+        height: 280px;
+    }
+
+    .profile-wrapper {
+        width: 260px;
+        height: 260px;
+    }
+
+    .code-card {
+        width: 160px;
+        right: 15px;
+        bottom: -10px;
+        font-size: 9px;
+    }
+
+    .tech-list {
+        justify-content: center;
+        gap: 22px;
+    }
+
+    .about {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .about-content,
+    .stats {
+        width: 100%;
+    }
+
+    .about h2 {
+        font-size: 30px;
+    }
+
+    .stats {
+        gap: 10px;
+    }
+
+    .stat {
+        padding: 12px 5px;
+    }
+
+    .skills-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    .heading h2 {
+        font-size: 27px;
+    }
+
+    .teaching-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .project-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    .project-visual {
+        height: 210px;
+    }
+
+    .contact {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .contact-content,
+    .contact-card {
+        width: 100%;
+    }
+
+    .contact h2 {
+        font-size: 33px;
+    }
+
+    footer {
+        flex-direction: column;
+        gap: 20px;
+    }
+}
+
+@media(max-width:380px) {
+
+    .hero h1 {
+        font-size: 36px;
+    }
+
+    .hero h2 {
+        font-size: 23px;
+    }
+
+    .stats {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media(prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- ================= NAVBAR ================= -->
+
+<header class="navbar">
+
+    <a href="#home" class="logo">
+        &lt;/&gt; IDRAQ<span>DEV</span>
+    </a>
+
+    <nav class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#teaching">Teaching</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <a href="#contact" class="hire-btn">Hire Me ↗</a>
+
+</header>
+
+
+<!-- ================= HERO ================= -->
+
+<section class="hero" id="home">
+
+    <div class="hero-content">
+
+        <div class="intro">
+            <span class="dot"></span>
+            ASPIRING SOFTWARE DEVELOPER
+        </div>
+
+        <h1>
+            Hi, I'm <span class="gradient">Idraq</span>
+        </h1>
+
+        <h2>
+            You imagine it.<br>
+            I make it real.
+        </h2>
+
+        <p>
+            Have an idea? Need a digital solution?
+            I'm Idraq, a developer who turns ideas into reality
+            through code. I enjoy solving problems and building
+            meaningful digital experiences.
+        </p>
+
+        <div class="buttons">
+
+            <a href="#projects" class="btn primary">
+                Explore My Work ↗
+            </a>
+
+            <a href="#contact" class="btn secondary">
+                Let's Connect
+            </a>
+
+        </div>
+
+        <div class="social">
+
+            <a href="https://github.com/IDRAQDev" target="_blank">
+                GitHub ↗
+            </a>
+
+            <a href="https://www.linkedin.com/in/idraq-ahmad-b46506425/" target="_blank">
+                LinkedIn ↗
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <div class="hero-image">
+
+        <div class="circle-glow"></div>
+
+        <div class="profile-wrapper">
+            <div class="profile-inner">
+                <img src="images/idraq.png"
+                     alt="Idraq Dev"
+                     class="profile">
+            </div>
+        </div>
+
+        <div class="code-card">
+
+            <span class="dot"></span> idraq.dev
+
+            <br><br>
+
+            <strong>const</strong> developer = {<br>
+
+            &nbsp;&nbsp;name: <em>"Idraq"</em>,<br>
+
+            &nbsp;&nbsp;passion: <em>"Building"</em>,<br>
+
+            &nbsp;&nbsp;focus: <em>"Solutions"</em><br>
+
+            };
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= TECHNOLOGIES ================= -->
+
+<div class="tech-section">
+
+    <p>TECHNOLOGIES I WORK WITH</p>
+
+    <div class="tech-list">
+
+        <span class="html">HTML5</span>
+        <span class="css">CSS3</span>
+        <span class="python">PYTHON</span>
+        <span class="java">JAVA</span>
+        <span class="c">C</span>
+        <span class="git">GIT</span>
+
+    </div>
+
+</div>
+
+
+<!-- ================= ABOUT ================= -->
+
+<section class="about" id="about">
+
+    <div class="about-content">
+
+        <span class="label">ABOUT ME</span>
+
+        <h2>
+            Turning ideas into<br>
+            <span class="gradient">digital solutions.</span>
+        </h2>
+
+        <p>
+            I'm Idraq, a Computer Science and Information Technology
+            student at Symbiosis University, Indore.
+
+            <br><br>
+
+            I enjoy programming, exploring new technologies
+            and developing solutions that make everyday tasks
+            easier.
+
+            <br><br>
+
+            My goal is to transform creative ideas into
+            useful digital experiences. I believe every problem
+            has a solution. Sometimes, all it needs is the
+            right idea and the right code.
+        </p>
+
+        <a href="#contact" class="btn secondary">
+            Let's Work Together ↗
+        </a>
+
+    </div>
+
+
+    <div class="stats">
+
+        <div class="stat">
+            <div class="stat-icon">⌘</div>
+            <div>
+                <h3>CSIT</h3>
+                <p>Student</p>
+            </div>
+        </div>
+
+        <div class="stat">
+            <div class="stat-icon">⌨</div>
+            <div>
+                <h3>6+</h3>
+                <p>Technologies</p>
+            </div>
+        </div>
+
+        <div class="stat">
+            <div class="stat-icon">⚡</div>
+            <div>
+                <h3>2+</h3>
+                <p>Projects</p>
+            </div>
+        </div>
+
+        <div class="stat">
+            <div class="stat-icon">∞</div>
+            <div>
+                <h3>100%</h3>
+                <p>Passion to Learn</p>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= SKILLS ================= -->
+
+<section class="skills" id="skills">
+
+    <div class="heading">
+
+        <span class="label">MY SKILLS</span>
+
+        <h2>
+            Technologies I <span class="gradient">Know</span>
+        </h2>
+
+        <p>
+            My technical skills and technologies I'm currently exploring.
+        </p>
+
+    </div>
+
+
+    <div class="skills-grid">
+
+        <div class="skill">
+
+            <div class="skill-info">
+                <span>HTML5</span>
+                <span>Professional</span>
+            </div>
+
+            <div class="bar">
+                <div class="progress p95"></div>
+            </div>
+
+        </div>
+
+
+        <div class="skill">
+
+            <div class="skill-info">
+                <span>CSS3</span>
+                <span>Intermediate</span>
+            </div>
+
+            <div class="bar">
+                <div class="progress p75"></div>
+            </div>
+
+        </div>
+
+
+        <div class="skill">
+
+            <div class="skill-info">
+                <span>C Programming</span>
+                <span>Intermediate</span>
+            </div>
+
+            <div class="bar">
+                <div class="progress p75"></div>
+            </div>
+
+        </div>
+
+
+        <div class="skill">
+
+            <div class="skill-info">
+                <span>Python</span>
+                <span>Proficient</span>
+            </div>
+
+            <div class="bar">
+                <div class="progress p85"></div>
+            </div>
+
+        </div>
+
+
+        <div class="skill">
+
+            <div class="skill-info">
+                <span>Java</span>
+                <span>Learning</span>
+            </div>
+
+            <div class="bar">
+                <div class="progress p30"></div>
+            </div>
+
+        </div>
+
+
+        <div class="skill">
+
+            <div class="skill-info">
+                <span>Git & GitHub</span>
+                <span>Intermediate</span>
+            </div>
+
+            <div class="bar">
+                <div class="progress p75"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= TEACHING ================= -->
+
+<section class="teaching" id="teaching">
+
+    <div class="heading">
+
+        <span class="label">SHARE KNOWLEDGE</span>
+
+        <h2>
+            Learn Web Development
+            <span class="gradient">With Me.</span>
+        </h2>
+
+        <p>
+            Helping beginners turn their curiosity into coding skills.
+        </p>
+
+    </div>
+
+
+    <div class="teaching-grid">
+
+
+        <div class="teaching-card">
+
+            <div class="teaching-icon">
+                &lt;/&gt;
+            </div>
+
+            <h3>HTML Fundamentals</h3>
+
+            <p>
+                Learn how to structure websites from scratch.
+                Understand HTML elements, forms, links,
+                images and semantic HTML.
+            </p>
+
+            <span>Beginner Friendly</span>
+
+        </div>
+
+
+        <div class="teaching-card">
+
+            <div class="teaching-icon">
+                🎨
+            </div>
+
+            <h3>CSS & Web Design</h3>
+
+            <p>
+                Learn how to make websites attractive using
+                CSS, layouts, colours, animations and
+                responsive design.
+            </p>
+
+            <span>Practical Learning</span>
+
+        </div>
+
+
+        <div class="teaching-card">
+
+            <div class="teaching-icon">
+                💻
+            </div>
+
+            <h3>Build Your First Website</h3>
+
+            <p>
+                Learn by building real projects.
+                Start with a simple webpage and gradually
+                create complete websites.
+            </p>
+
+            <span>Project Based Learning</span>
+
+        </div>
+
+    </div>
+
+
+    <div class="all-projects">
+
+        <a href="mailto:idraqahmad@gmail.com?subject=Web%20Development%20Learning"
+           class="btn primary">
+            Start Learning With Me ↗
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- ================= PROJECTS ================= -->
+
+<section class="projects" id="projects">
+
+    <div class="heading">
+
+        <span class="label">FEATURED PROJECTS</span>
+
+        <h2>
+            Some of My <span class="gradient">Recent Work</span>
+        </h2>
+
+        <p>
+            A collection of ideas transformed into digital solutions.
+        </p>
+
+    </div>
+
+
+    <div class="project-grid">
+
+
+        <!-- PROJECT 1 -->
+
+        <div class="project-card">
+
+            <div class="project-number">01 / PROJECT</div>
+
+            <div class="project-visual library">
+
+                <span>MANAGEMENT SYSTEM</span>
+
+                <h3>Library<br>Management</h3>
+
+                <div class="visual-icon">▤</div>
+
+            </div>
+
+            <div class="project-details">
+
+                <h3>Library Management System</h3>
+
+                <p>
+                    A system designed to manage books,
+                    records and library operations efficiently.
+                </p>
+
+                <div class="tags">
+                    <span>C</span>
+                    <span>Programming</span>
+                </div>
+
+                <a href="https://github.com/IDRAQDev"
+                   target="_blank" class="project-link">
+                    View Project ↗
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- PROJECT 2 -->
+
+        <div class="project-card">
+
+            <div class="project-number">02 / PROJECT</div>
+
+            <div class="project-visual ecommerce">
+
+                <span>ONLINE STORE</span>
+
+                <h3>E-Commerce<br>Platform</h3>
+
+                <div class="visual-icon">🛒</div>
+
+            </div>
+
+            <div class="project-details">
+
+                <h3>E-Commerce Website</h3>
+
+                <p>
+                    An online shopping platform focused on
+                    product presentation and user experience.
+                </p>
+
+                <div class="tags">
+                    <span>HTML</span>
+                    <span>CSS</span>
+                </div>
+
+                <a href="https://github.com/IDRAQDev"
+                   target="_blank" class="project-link">
+                    View Project ↗
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- PROJECT 3 -->
+
+        <div class="project-card">
+
+            <div class="project-number">03 / UPCOMING</div>
+
+            <div class="project-visual future">
+
+                <span>COMING SOON</span>
+
+                <h3>Something<br>Big Is Coming.</h3>
+
+                <div class="visual-icon">⌘</div>
+
+            </div>
+
+            <div class="project-details">
+
+                <h3>Future Innovations</h3>
+
+                <p>
+                    Exploring new technologies and developing
+                    ideas for future projects.
+                </p>
+
+                <div class="tags">
+                    <span>Python</span>
+                    <span>Java</span>
+                </div>
+
+                <a href="https://github.com/IDRAQDev"
+                   target="_blank" class="project-link">
+                    Follow My Journey ↗
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="all-projects">
+
+        <a href="https://github.com/IDRAQDev"
+           target="_blank" class="btn secondary">
+            Explore My GitHub ↗
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- ================= CONTACT ================= -->
+
+<section class="contact" id="contact">
+
+    <div class="contact-content">
+
+        <span class="label">LET'S WORK TOGETHER</span>
+
+        <h2>
+            Have a project<br>
+            <span class="gradient">in mind?</span>
+        </h2>
+
+        <p>
+            Have an idea, a problem to solve, or simply want
+            to connect? Let's turn your ideas into something
+            meaningful.
+
+            I'm always interested in exploring new opportunities,
+            teaching beginners and building something great.
+        </p>
+
+        <a href="mailto:idraqahmad@gmail.com"
+           class="btn primary">
+            Email Me ↗
+        </a>
+
+    </div>
+
+
+    <div class="contact-card">
+
+        <h3>Find Me Here</h3>
+
+        <p>Let's connect and create something great.</p>
+
+        <a href="https://github.com/IDRAQDev"
+           target="_blank">
+            <span>GitHub</span>
+            <span>↗</span>
+        </a>
+
+        <a href="https://www.linkedin.com/in/idraq-ahmad-b46506425/"
+           target="_blank">
+            <span>LinkedIn</span>
+            <span>↗</span>
+        </a>
+
+        <a href="mailto:idraqahmad@gmail.com">
+            <span>Email</span>
+            <span>↗</span>
+        </a>
+
+        <a href="mailto:idraqahmad@gmail.com">
+            <span>idraqahmad@gmail.com</span>
+            <span>↗</span>
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    <a href="#home" class="logo">
+        &lt;/&gt; IDRAQ<span>DEV</span>
+    </a>
+
+    <p>
+        Designed & Built by Idraq Dev.
+        <br>
+        © 2026 All Rights Reserved.
+    </p>
+
+    <a href="#home" class="back">
+        Back to Top ↑
+    </a>
+
+</footer>
+
+</body>
+</html>
